@@ -1,0 +1,91 @@
+<div class="container-fluid mt-4 section-two">
+  <div class="row">
+      <div class="col-10 mt-4">
+          <div class="row ">
+
+
+
+            <div class="col-3 offset-1"  >
+              <div class="card">
+                  <div class="in-card ">
+                      <!-- <img [src] = foodone class="pic-food"> -->
+                  </div>
+                  <div class="details">
+                           <p class="price">Name:</p>
+                           <p class="price"> <span>price:</span></p>
+                           <p class="price"><span>Description:</span> </p>
+                           <input type="number"  #count  placeholder="count..." name="count" required minlength="3" value=1>
+                           <button class="btn-cart col-10 offset-1" type="submit" >Add to CART</button>
+
+                  </div>
+              </div>
+           </div>
+
+              <div class="col-3 offset-1" *ngFor="let item of arr" >
+                 <div class="card">
+                     <div class="in-card ">
+                         <!-- <img [src] = foodone class="pic-food"> -->
+                     </div>
+                     <div class="details">
+                              <p class="price">Name:<span>{{item.name}}</span></p>
+                              <p class="price"> <span>price:{{item.price}}</span></p>
+                              <p class="price"><span>Description:{{item.description}}</span> </p>
+                              <input type="number"  #count  placeholder="count..." name="count" required minlength="3" value=1>
+                              <button class="btn-cart col-10 offset-1" type="submit" (click)="addcart(item._id,item.name,count.value)" >Add to CART</button>
+
+                     </div>
+                 </div>
+              </div>
+
+            </div>
+
+              </div>
+          </div>
+      </div>
+
+<!-- <div class="row">
+    <div class="card col-4" style="margin-bottom: 10px;" *ngFor="let item of arr"> -->
+      <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
+  <!-- <div class="card-body">
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">Name:{{item.name}}</li>
+        <li class="list-group-item">price:{{item.price}}</li>
+        <li class="list-group-item">description:{{item.description}}</li> -->
+        <!-- <li class="list-group-item">Size:{{item.size}}</li> -->
+<!--
+  <li class="list-group-item">
+    <div>
+      <div class="card">
+        <div class="card-body" >
+
+          <form class="row g-8 needs-validation" novalidate #register="ngForm">
+            <div class="col-md-7 position-relative">
+                  <label for="validationTooltip01" class="form-label" >count</label>
+                  <input type="number"  #count class="form-control" id="validationTooltip01" placeholder="count..." name="count" required minlength="3" value=1>
+                  <div *ngIf="count.invalid && (count.dirty || count.touched)" class="alert alert-danger">
+                    <div *ngIf="count.errors.required">
+                      count is required.
+                    </div>
+                    </div>
+                    </div>
+                   </form>
+                </div>
+                </div>
+                </div>
+
+  <button class="btn btn-primary" type="submit" (click)="addcart(item._id,item.name,count.value)"  [disabled]="register.form.invalid2">Add to CART</button>
+</li>
+
+
+
+      </ul>
+    </div>
+    </div>
+</div>
+
+
+
+
+
+
+ -->

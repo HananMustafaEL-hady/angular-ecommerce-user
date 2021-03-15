@@ -1,0 +1,66 @@
+/* p {
+    color: rgb(113, 16, 126);
+}
+
+h1 {
+    color: rgb(231, 50, 50);
+}
+
+input {
+    width: 200px;
+    border: 2px solid rgba(1, 13, 27, 0.2);
+} */
+
+
+/* task3 */
+
+table {
+    margin: 0 auto;
+}
+
+th,
+td {
+    width: 700px;
+}
+
+th,
+td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    padding: 5px;
+    text-align: left;
+}
+
+div {
+    width: 700px;
+    margin: 20px;
+}
+
+.styled-table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.styled-table th {
+    background-color: #23ccb0;
+    color: #ffffff;
+    font-size: larger;
+    text-align: left;
+}
+
+.styled-table th,
+.styled-table td {
+    padding: 12px 15px;
+}
+
+.styled-table tr {
+    border-bottom: 1px solid #dddddd;
+}

@@ -1,0 +1,58 @@
+.firstsection{
+  background-color: #e2faed;
+  padding: 30px;
+}
+.title{
+  color: #1d203a;
+  font-size: 60px;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 40px;
+}
+.par{
+ margin: auto;
+  font-size: 20px;
+  color: #141a2c;
+  text-align: center;
+}
+.par-side{
+  color: #1d203a;
+  font-size: 60px;
+  font-weight: bold;
+  text-align: left;
+  margin-top: 40px;
+  text-transform: capitalize;
+}
+.par2{
+
+   font-size: 16px;
+   color: #141a2c;
+   text-align: left;
+}
+
+.div-chef{
+  background-color: #fff;
+  border-radius: 10px;
+  margin-top: 30px;
+  height: 400px;
+  text-align: center;
+}
+.div-chef img {
+  max-height: 250px;
+
+}
+.div-chef p{
+  color: #3bb77e;
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 20px;
+  text-transform: capitalize;
+}
+.div-chef span{
+  color: #ffb842;
+  font-size: 20px;
+
+  margin-top: 5px;
+  text-transform: capitalize;
+
+}

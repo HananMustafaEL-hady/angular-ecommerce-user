@@ -1,0 +1,15 @@
+
+<table class="table table-primary bg-info">
+<thead>
+    <th *ngFor="let header of Headers">
+        {{header}}
+        </th>
+</thead>
+
+<tbody>
+    <tr *ngFor="let item of list">
+       <td *ngFor="let key of Headers"> {{item[key.toLowerCase()]}}<td>
+    </tr>
+    </tbody>
+
+</table>

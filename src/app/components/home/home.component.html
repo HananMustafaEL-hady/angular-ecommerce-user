@@ -1,0 +1,91 @@
+<!-- first section-->
+<div class="container-fluid section-one">
+  <div class="row">
+      <div class="col-12">
+      </div>
+  </div>
+
+  <div class="container mt-4">
+      <div class="row">
+          <div class="col-5 ">
+              <div class="left-div ">
+                  <img [src]=leaf class="img-leaf">
+                  <h1>Testy <span>Food</span> online</h1>
+                  <p>we are the best , able to make you happy with a delicious meal.</p>
+              </div>
+          </div>
+          <div class="col-5 offset-2">
+              <div>
+                  <img [src] = man style="max-height:400px ;">
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+
+<!--second section-->
+<div class="container-fluid mt-4 section-two">
+  <div class="row">
+      <h2 class="m-auto title">Every Day Offers</h2>
+
+  </div>
+
+  <div class="row">
+      <img [src]=leaf2 class="img-leaf2  col-2">
+
+      <div class="col-10 mt-4">
+          <div class="row ">
+              <div class="col-3 offset-1 "*ngFor="let item of menuOffers" >
+                 <div class="card">
+                     <div class="in-card ">
+                         <img [src] = foodone class="pic-food">
+                     </div>
+                     <div class="details">
+                              <p class="orange">{{item.name}}</p>
+                              <p class="price">{{item.price}} $</p>
+                              <!-- <p class="price">{{item.description}}</p> -->
+                              <input type="number"  #count  placeholder="count..." name="count" required minlength="3" value=1>
+                              <button class="btn-cart col-10 offset-1" type="submit" (click)="addcart(item._id,item.name,count.value)" >Add to CART</button>
+                     </div>
+                 </div>
+              </div>
+
+          </div>
+      </div>
+
+  </div>
+</div>
+
+
+<!--third section-->
+
+<div class="container-fluid section-three">
+  <div class="row">
+      <div class="col-12">
+         <h2 class="client">what our clients say ...</h2>
+      </div>
+  </div>
+  <div class="row justify-content-center mt-4" >
+      <div class="col-3   div-client">
+          <p>this is the best food i have ever eat, this is the best food </p>
+          <img [src]=people class="pic-people">
+          <div class="client-name">john cris</div>
+
+      </div>
+      <div class="col-3 offset-1 div-client">
+          <p>this is the best food i have ever eat, this is the best food </p>
+          <img [src]=people class="pic-people">
+          <div class="client-name">john cris</div>
+
+      </div>
+      <div class="col-3 offset-1 div-client">
+          <p>this is the best food i have ever eat, this is the best food </p>
+          <img [src]=people class="pic-people">
+          <div class="client-name">john cris</div>
+
+      </div>
+  </div>
+</div>
+
+

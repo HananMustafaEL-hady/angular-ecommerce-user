@@ -1,0 +1,19 @@
+.inp {
+    color: rgb(17, 0, 2);
+    display: flex;
+    align-content: center;
+    font-size: 20px;
+    padding: 3px 10px;
+    border: 3px solid rgba(9, 46, 116, 0.2);
+    border-radius: 5px;
+    width: 300px;
+    background-color: rgb(189, 194, 194);
+    margin: 0 auto;
+}
+
+p {
+    color: tomato;
+    font-weight: bolder;
+    font-size: larger;
+    text-align: center;
+}

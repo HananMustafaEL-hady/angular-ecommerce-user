@@ -1,0 +1,20 @@
+
+.btn-primary{
+  background-color: #3bb77e;
+  border: 1px solid #3bb77e;
+  color: #fff;
+}
+.btn-outline-secondary{
+  background-color: #ffba43;
+  border: 1px solid #ffba43;
+  color: #fff;
+}
+.card-text{
+  color: #1c2137;
+}
+.fa-heart {
+  color: palevioletred;
+  cursor: pointer;
+  float: right;
+}
+

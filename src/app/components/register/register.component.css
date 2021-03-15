@@ -1,0 +1,182 @@
+
+* {
+    box-sizing: border-box;
+  }
+
+  img {
+    max-height: 500px;
+  }
+  h2 {
+    color: #04a359;
+  }
+  h5 {
+    color: #71c79f;
+    font-size: 14px;
+  }
+
+  .btn {
+    padding: 8px 15px;
+    border-radius: 4px;
+    display: inline-block;
+    border: 1px solid transparent;
+    position: relative;
+    z-index: 3;
+    -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12),
+      0 1px 2px rgba(0, 0, 0, 0.24);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    -webkit-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    transition: all 0.4s;
+    cursor: pointer;
+    outline: none;
+    overflow: hidden;
+    background: #04a359;
+    border-color: #04a359;
+    outline: none;
+    outline-style: none;
+    color: #fff;
+    text-decoration: none;
+    width: 100%;
+    margin-top: 13px;
+  }
+
+  .btn span {
+    text-transform: uppercase;
+    position: relative;
+    z-index: 6;
+    -webkit-transition-delay: 0s;
+    -o-transition-delay: 0s;
+    transition-delay: 0s;
+  }
+
+  .btn:before,
+  .btn:after {
+    content: "";
+    width: 0;
+    height: 100%;
+    background: #ffffff;
+    position: absolute;
+    left: 0;
+    top: 0;
+    -webkit-transition: width 0.4s;
+    -o-transition: width 0.4s;
+    transition: width 0.4s;
+    z-index: 1;
+    opacity: 0.4;
+  }
+
+  .btn:after {
+    -webkit-transition-delay: 0s;
+    -o-transition-delay: 0s;
+    transition-delay: 0s;
+    background: #ffffff;
+    opacity: 1;
+  }
+
+  .btn:hover:before,
+  .btn:hover:after {
+    width: 100%;
+  }
+
+  .btn:hover:after {
+    -webkit-transition-delay: 0.2s;
+    -o-transition-delay: 0.2s;
+    transition-delay: 0.2s;
+  }
+
+  .btn:hover {
+    color: #04a359;
+  }
+  .btn:hover span {
+    -webkit-transition-delay: 0.2s;
+    -o-transition-delay: 0.2s;
+    transition-delay: 0.2s;
+    color: #04a359;
+  }
+  .btn span:hover {
+    color: #04a359;
+  }
+
+  .form-control {
+    padding: 12px 0px;
+    height: auto;
+    box-shadow: none;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 0;
+    background: transparent;
+    font-size: 18px;
+    font-weight: 600;
+  }
+  .form-control:focus {
+    background: transparent;
+    outline-style: none;
+    outline: none;
+    color: #04a359;
+  }
+
+
+
+.signup-row{
+    margin-top: 2%;
+  }
+  .form-group {
+    margin-bottom: 0;
+  }
+  .radio-label {
+    font-size: 18px;
+    font-weight: 600;
+    color: #222;
+  }
+
+  .radio-label .mail,
+  .radio-label .female {
+    display: inline-block;
+    padding-top: 20px;
+  }
+  .radio-label .mail {
+    padding-right: 20px;
+  }
+
+
+
+  @keyframes fadeInUp {
+    from {
+        transform: translate3d(0,40px,0)
+    }
+
+    to {
+        transform: translate3d(0,0,0);
+        opacity: 1
+    }
+  }
+
+  @-webkit-keyframes fadeInUp {
+    from {
+        transform: translate3d(0,40px,0)
+    }
+
+    to {
+        transform: translate3d(0,0,0);
+        opacity: 1
+    }
+  }
+
+  .animated {
+    animation-duration: 1s;
+    animation-fill-mode: both;
+    -webkit-animation-duration: 1s;
+    -webkit-animation-fill-mode: both
+  }
+
+  .animatedFadeInUp {
+    opacity: 0
+  }
+
+  .fadeInUp {
+    opacity: 0;
+    animation-name: fadeInUp;
+    -webkit-animation-name: fadeInUp;
+  }

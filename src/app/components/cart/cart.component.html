@@ -1,0 +1,69 @@
+
+<div class="container-fluid mt-4 section-two">
+  <div class="row">
+      <!-- <img [src]=leaf2 class="img-leaf2  col-2"> -->
+
+      <div class="col-10 mt-4">
+          <div class="row ">
+            <!-- <div class="card col-4" style="margin-bottom: 10px;" *ngFor="let item of carts"> -->
+              <div class="col-3 offset-1" *ngFor="let item of carts" >
+                 <div class="card">
+                     <div class="in-card ">
+                         <!-- <img [src] = foodone class="pic-food"> -->
+                     </div>
+                     <div class="details">
+                              <p class="orange">Meal:{{item.menuName}}</p>
+                              <p class="price"> count: {{item.count}} </p>
+                              <button class="btn-cart col-10 offset-1" type="submit" (click)="deleteCart(item._id)">Delete</button>
+                              <input type="number" value=1 #c required>
+
+                              <button class="btn-cart col-10 offset-1" type="submit" (click)="EditCount(item._id,c.value)">change the count</button>
+
+                     </div>
+                 </div>
+              </div>
+
+            </div>
+
+              </div>
+          </div>
+      </div>
+
+  <!-- </div> -->
+
+
+
+
+<!-- <div class="row">
+  <div class="card col-4" style="margin-bottom: 10px;" *ngFor="let item of carts"> -->
+    <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
+<!-- <div class="card-body">
+     <ul class="list-group list-group-flush"> -->
+      <!-- <li class="list-group-item">User id:{{item.userid}}</li>
+      <li class="list-group-item">menu id:{{item.Menuid}}</li> -->
+      <!-- <li class="list-group-item">Meal:{{item.menuName}}</li> -->
+      <!-- <li class="list-group-item">
+        <input type="checkbox" id="meal" name="vehicle1" value={{item.Menuid}}>
+        <label for="vehicle1"> Meal:{{item.menuName}}</label><br>
+
+      </li>
+
+      <li class="list-group-item">count:{{item.count}}</li>
+
+
+      <li class="list-group-item">
+        <button class="btn btn-primary" type="submit" (click)="deleteCart(item._id)">delete</button>
+      </li>
+      <li class="list-group-item">
+        <input type="number" value=1 #c required>
+      </li>
+      <li class="list-group-item">
+        <button class="btn btn-primary" type="submit" (click)="EditCount(item._id,c.value)">change the count</button>
+      </li>
+
+    </ul>
+  </div>
+  </div>
+</div>
+
+ -->

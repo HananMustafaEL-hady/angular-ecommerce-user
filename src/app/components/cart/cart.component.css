@@ -1,0 +1,151 @@
+.section-one{
+  background-color: #e2faed;
+  padding: 20px;
+}
+.img-leaf{
+  max-height: 100px;
+  margin-top: 10px;
+  transition: 1s all ease-in-out;
+  float: right;
+}
+.img-leaf:hover{
+  margin-top: 0px;
+  transition: 1s all ease-in-out;
+}
+.left-div h1{
+  font-size: 60px;
+  color: #1e2038;
+  text-transform: capitalize;
+  margin-top: 50px;
+}
+.left-div h1 span {
+  color: #38b980;
+}
+.left-div p{
+  font-size: 18px;
+  color: #b3b4b3;
+}
+.btn-more{
+  background-color: #ffba43;
+  border-radius: 10px;
+  border: 1px solid #ffba43;
+  color: #fff;
+  padding: 10px;
+  text-transform: capitalize;
+}
+
+.img-leaf2{
+transform: rotate(70deg);
+transition: 1s all ease-in-out;
+margin-top: 10px;
+
+}
+input
+{
+  width: 60px;
+  border: 1px solid black;
+  margin-left: 70px;
+  border-radius: 8px;
+  font-weight: bold;
+
+
+}
+.img-leaf2:hover{
+  margin-top: 0px;
+  transition: 1s all ease-in-out;
+}
+.title{
+  color: #1e1f3a;
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.card{
+  width: 300px;
+  background-color: #fff;
+  border-radius: 10px;
+  border: 1px solid #1e1f3a;
+  margin-top: 30px;
+  transition: 1s all ease-in-out;
+}
+.card:hover{
+  transition: 1s all ease-in-out;
+  transform: scale3d(1.2,1.2,1.2);
+}
+.in-card{
+  background-color: #fff5e1;
+  border-radius: 10px;
+}
+.pic-food{
+
+  margin-left:20%;
+  max-height: 100px;
+}
+.orange{
+  color: #182033;
+  text-transform: capitalize;
+  font-weight: bold;
+  padding-left: 15px;
+  font-size: 25px;
+}
+.price{
+  color: #38b980;
+  font-size: 20px;
+  text-transform: capitalize;
+  font-weight: bold;
+  padding-left: 15px;
+}
+.btn-cart{
+  background-color: #ffba43;
+  border-radius: 10px;
+  border: 1px solid #ffba43;
+  color: #fff;
+ height: 40px;
+  text-transform: capitalize;
+  margin-bottom: 10px;
+
+}
+.section-three{
+  background-color: #3bb77e;
+  height: 400px;
+  margin-top: 20px;
+}
+.client{
+  color: #fff;
+  font-size: 40px;
+  font-weight: bold;
+  text-align: center;
+  text-transform: capitalize;
+  margin-top: 30px;
+}
+.div-client{
+  border-radius: 10px;
+  background-color: #fff;
+  padding: 10px;
+  transition: 1s all ease-in-out;
+}
+.div-client:hover{
+  transition: 1s all ease-in-out;
+  transform: scale3d(1.1,1.1,1.1);
+
+}
+.div-client p{
+  color: #dbdbdb;
+  font-size: 18px;
+  text-align: center;
+}
+.pic-people{
+  border-radius: 20px;
+  margin-left:20%;
+  max-height: 100px;
+}
+.client-name{
+  background-color: #3bb77e;
+  border-radius: 10px;
+  color: #fff;
+  height: 50px;
+  margin: 20px;
+  text-align: center;
+  font-size: 30px;
+  text-transform: capitalize;
+}
