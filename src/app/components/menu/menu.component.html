@@ -38,7 +38,7 @@
                               <p class="price"> <span>price:{{item.price}}</span></p>
                               <p class="price"><span>Description:{{item.description}}</span> </p>
                               <input type="number"  #count  placeholder="count..." name="count" required minlength="3" value=1>
-                              <button class="btn col-10 offset-1" type="submit" (click)="addcart(item._id,item.name,count.value,item.price)" ><span>Add to CART</span></button>
+                              <button class="btn col-10 offset-1" type="submit" (click)="addcart(item._id,count.value)" ><span>Add to CART</span></button>
 
                      </div>
                  </div>

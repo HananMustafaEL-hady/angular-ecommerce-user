@@ -6,6 +6,9 @@ import { CommonModule } from "@angular/common";
 import {Router} from '@angular/router'
 import {AuthService} from '../auth/auth.service'
 import { map } from 'rxjs//operators';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormControl } from '@angular/forms';
+
 
 @Injectable({
   providedIn: 'root'
@@ -20,21 +23,34 @@ import { map } from 'rxjs//operators';
 export class ProfileComponent implements OnInit {
 
 
-  constructor(private Activated_Route :ActivatedRoute ,private router:Router,private http:HttpClient ,private order:AuthService) {
+  constructor(private Activated_Route :ActivatedRoute ,private router:Router,private http:HttpClient ,private order:AuthService,private formBuilder: FormBuilder) {
 
 
    }
 
   ngOnInit(): void {
+
     this.Getuser();
     this.getorder();
-  }
+    this.registerForm = this.formBuilder.group({
 
-  userorder=[{"Order_Placed_date": "",
-  "Order_delivered_date": "",
-  "items": [],
-  "order_status": "",
-  "userid": ""}];
+      email: ['', [Validators.required, Validators.email]],
+      password: [ '',[Validators.required, Validators.minLength(6)]],
+
+  }
+  );
+  }
+  registerForm!: FormGroup;
+
+  userorder=[]
+  // userorder=[{"Order_Placed_date": "",
+  // "Order_delivered_date": "",
+  // "items": [],
+  // "order_status": "",
+  // "userid": ""}];
+
+
+
 
   user=[{
 
@@ -97,6 +113,7 @@ getorder(){
   this.order.GetMethodauth("https://restaurant98.herokuapp.com/order/user").pipe(
     map(resDB=>{
      console.log(resDB)
+
     const arrposts=[];
      arrposts.push(...resDB);
     return  arrposts;
@@ -114,5 +131,59 @@ getorder(){
 );
 
 }
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+httpOptionsEdit = {
+  headers: new HttpHeaders({
+    'Accept': 'text/html',
+    'Content-Type': 'application/json; charset=utf-8',
+    'Authorization':`${this.token}`
+  }),
+  responseType: 'text' as 'json'
+};
+
+editphone(phone){
+
+    this.http.patch(`${this.urlbase}/phone/`,{phone:phone},this.httpOptionsEdit).subscribe(posts=>{
+      console.log(posts);
+    });
+
+}
+
+editname(fname,lname){
+
+  this.http.patch(`${this.urlbase}/name/`,{fname,lname},this.httpOptionsEdit).subscribe(posts=>{
+    console.log(posts);
+  });
+
+}
+
+editemail(email){
+
+  this.http.patch(`${this.urlbase}/email/`,{email},this.httpOptionsEdit).subscribe(posts=>{
+    console.log(posts);
+  });
+
+}
+
+
+editpass(password){
+
+  this.http.patch(`${this.urlbase}/password/`,{password},this.httpOptionsEdit).subscribe(posts=>{
+    console.log(posts);
+  });
+
+}
+
+editaddress(address){
+  console.log(address);
+
+  this.http.patch(`${this.urlbase}/address/`,{address},this.httpOptionsEdit).subscribe(posts=>{
+    console.log(posts);
+  });
+
+}
+
+
+
 
 }

@@ -188,10 +188,10 @@ editMenudescription(description,id){
 }
 
 
-addcart(Menuid,menuName,count,price){
+addcart(menuid,count){
 
 
-console.log(menuName);
+console.log(menuid);
   const httpOptions = {
     headers: new HttpHeaders({
       'Accept': 'text/html',
@@ -200,19 +200,14 @@ console.log(menuName);
     }),
     responseType: 'text' as 'json'
   };
-this.datamenu={
-  Menuid:Menuid,
-  menuName:menuName,
-  count:count,
-  price:price
-
-}
-console.log(this.datamenu)
-this.http.post("http://localhost:3000/cart",this.datamenu,httpOptions).subscribe(
+  console.log(menuid);
+this.datamenu={ menuid:menuid,count:count}
+console.log(this.datamenu);
+this.http.post("https://restaurant98.herokuapp.com/cart",this.datamenu,httpOptions).subscribe(
 
 posts=>{
   console.log(posts);
-  this.router.navigate(['/cart']);
+  // this.router.navigate(['/cart']);
 },
 err=>{
   // console.clear();

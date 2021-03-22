@@ -68,7 +68,25 @@
                           <div class="col-sm-9 text-secondary">
                           <span> {{user[0].firstName}} </span>   {{user[0].lastName}}
 
+                          <div class="form-group">
+                            <input  class="form-control" #firstName >
+                            <input  class="form-control" #lastName >
+
                           </div>
+
+                          <button  class="btn btn-primary" (click)="editname(firstName.value,lastName.value)">Submit</button>
+
+                          </div>
+
+
+
+
+
+
+
+
+
+
                       </div>
                       <hr>
                       <div class="row">
@@ -76,9 +94,28 @@
                               <h6 class="mb-0">Email</h6>
                           </div>
                           <div class="col-sm-9 text-secondary">
-                            {{user[0].email}}                          </div>
+                            {{user[0].email}}
+
+                          </div>
                       </div>
+
+                      <div class="form-group">
+                        <input type="text" class="form-control" pattern="[^@\s]+@[^@\s]+" title="Invalid email address" #email />
+
+                      </div>
+
+                      <button  class="btn btn-primary" (click)="editemail(email)">Submit</button>
                       <hr>
+
+                      <form>
+
+
+                      </form>
+
+
+
+
+
                       <div class="row">
                           <div class="col-sm-3">
                               <h6 class="mb-0">Gender</h6>
@@ -86,19 +123,40 @@
                           <div class="col-sm-9 text-secondary">
                             {{user[0].gender}}
                             </div>
+
+
                       </div>
                       <hr>
 
 
+
+
+
+
                       <div class="row">
+
+
                           <div class="col-sm-3">
                               <h6 class="mb-0">Address</h6>
                           </div>
                           <div class="col-sm-9 text-secondary">
                             {{user[0].address}}
 
+                            <!-- <form> -->
+                              <div class="form-group">
+                                <input  class="form-control" #address >
+                              </div>
+
+                              <button  class="btn btn-primary" (click)="editaddress(address.value)">Submit</button>
+                            <!-- </form> -->
                           </div>
+
+
+
+
+
                       </div>
+
 
                       <!-- <div class="row">
                         <div class="col-sm-3">
@@ -121,6 +179,10 @@
                       </div>
                   </div>
           </div>
+
+
+
+
       </div>
   </div>
 </div>
@@ -128,24 +190,21 @@
 </div>
 
 
+<div>
+<!--
+  <div *ngFor="let item of userorder">
+    <p>
+      {{item}}
+      </p>
 
 
 
-<div class="container " >
-  <div class="row ">
-    <div class="  col-lg-4  card justify-content-between " *ngFor="let property of userorder" >
-      <p class="price">order status:<span>{{property.value.order_status}}</span> </p>
-      <p class="price">Order Placed date:<span>{{property.value.Order_Placed_date}}</span> </p>
-      <p class="price">order status:<span>{{property.value.Order_delivered_date}}</span> </p>
-       <div class="col-sm"  *ngFor="let property2 of property.value.items" >
-        <p class="price"> menu Name:<span>{{property2.value.menuName}}</span></p>
-      <p class="price"> count:<span>{{property2.value.count}}</span></p>
-      <p class="price"> price:<span>{{property2.value.price}}</span></p>
-</div>
-</div>
-</div>
-</div>
+  </div> -->
+  <!-- {{userorder}} -->
 
+
+
+<!-- {{userorder[0].order_status}} -->
 
 
 

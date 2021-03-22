@@ -30,6 +30,7 @@
     "bootstrap": "^5.0.0-beta2",
     "cors": "^2.8.5",
     "jsin": "^0.1.12",
+    "ng-dialog": "^1.4.0",
     "ng-uikit-pro-standard": "^1.0.0",
     "or": "^0.2.0",
     "puppeteer-jquery": "^0.1.8",

@@ -21,7 +21,6 @@
 
                               <button class="btn-cart col-10 offset-1" type="submit" (click)="deleteCart(item._id)">Delete</button>
 
-                              <button #btn (click)="addToOrder(item);btn.disabled = true; " class=" btn-primary col-10 offset-1" >add to Order List</button>
 
                      </div>
                  </div>
@@ -33,7 +32,11 @@
           </div>
       </div>
 
-      <button (click)="makeOrder()" class="btn offset-4 col-4 mb-4"><span>make order</span></button>
+      <button (click)="makeOrder()" [disabled]="(carts.length==0)? true:false"
+      mat-button class="btn offset-4 col-4 mb-4"><span>make order</span></button>
+      <!-- <button type="button"
+  [disabled]="!(carts)? true:false"
+  mat-button>Button</button> -->
 
   <!-- </div> -->
 

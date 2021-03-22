@@ -21,7 +21,7 @@ export class CartComponent implements OnInit {
  this.Getcarts();
 
   }
-  carts;
+  carts=[];
 
   urlbase="https://restaurant98.herokuapp.com/cart"
 
@@ -71,12 +71,13 @@ Getcarts(){
 
 }
 arrOfOrder=[]
-addToOrder(item){
-  this.arrOfOrder.push(item);
-   console.log(this.arrOfOrder);
 
 
-};
+/////////////////////////////////////////////////////////make list of orders////////////////////////////////////////////////
+// addToOrder(item){
+//   this.arrOfOrder.push(item);
+//    console.log(this.arrOfOrder);
+// };
 /****************************************************************************************************/
   deleteCart(id){
     const httpOptions = {
@@ -120,21 +121,13 @@ EditCount(id,count){
 
 makeOrder(){
 let arrsend=[]
-  const httpOptions = {
-    headers: new HttpHeaders({
-      // 'Accept': 'text/html',
-      // 'Content-Type': 'application/json; charset=utf-8',
-      'Authorization':`${this.token}`
-    }),
-    // responseType: 'json' as 'json'
-  };
 
-// console.log(this.arrOfOrder);
-for(var i =0;i<this.arrOfOrder.length;i++){
- var obj={count: this.arrOfOrder[i].count,
-      menuName: this.arrOfOrder[i].menuName,
-      price:this.arrOfOrder[i].price
 
+  console.log(this.carts);
+for(var i =0;i<this.carts.length;i++){
+ var obj={
+      menuid: this.carts[i].menuid,
+      count: this.carts[i].count,
  }
  arrsend.push(obj);
 //  console.log(arrsend);
@@ -150,9 +143,27 @@ console.log(arrsend);
   const headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8');
  this.http.post<any>("https://restaurant98.herokuapp.com/order",arrsend, {headers: headers}).subscribe(posts=>{
     console.log(posts);
+    this.router.navigate(['/profile/1']);
+    // this.cartdelete();
   });
-}
 
+
+
+}
+cartdelete(){
+  const httpOptions = {
+    headers: new HttpHeaders({
+      'Accept': 'text/html',
+      'Content-Type': 'application/json; charset=utf-8',
+      'Authorization':`${this.token}`
+    }),
+    responseType: 'json' as 'json'
+  };
+  this.http.delete<any>("https://restaurant98.herokuapp.com/cart",httpOptions).subscribe(posts=>{
+    console.log(posts);
+})
+
+}
 
 
 }

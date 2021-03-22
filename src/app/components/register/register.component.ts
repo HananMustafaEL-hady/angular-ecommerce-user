@@ -71,6 +71,7 @@ export class RegisterComponent implements OnInit {
       "address":this.registerForm.controls.address.value,
       "phonenumber":this.registerForm.controls.phonenumber.value,
       "gender":this.registerForm.controls.gender.value,
+      "phone":this.registerForm.controls.phonenumber.value,
       };
       console.log(user);
 
