@@ -33,7 +33,7 @@ export class HomeComponent implements OnInit {
   foodone : string ="assets/images/orange.png"
   people : string = "assets/images/people.png"
 
-  urlbase="http://localhost:3000/menuOffers";
+  urlbase="https://restaurant98.herokuapp.com/menuOffers";
 menuOffers=[];
 
   getoffers(){
@@ -58,32 +58,31 @@ this.menuOffers=posts;
 }
 datamenu
 
-addcart(Menuid,menuName,count){
+addcart(Menucart,menuName,count,pricemenu){
 
 
-  console.log(menuName);
+  // console.log(menuName);
     const httpOptions = {
       headers: new HttpHeaders({
-        'Accept': 'text/html',
-        'Content-Type': 'application/json; charset=utf-8',
         'Authorization':`${this.token}`
       }),
-      responseType: 'text' as 'json'
     };
   this.datamenu={
-    Menuid:Menuid,
+    Menucart:Menucart,
     menuName:menuName,
-    count:count
+    count:count,
+    price:pricemenu,
   }
-  console.log(this.datamenu)
-  this.http.post("http://localhost:3000/cart",this.datamenu,httpOptions).subscribe(
+  console.log(this.datamenu);
+
+  this.http.post("https://restaurant98.herokuapp.com/cart",this.datamenu,httpOptions).subscribe(
 
   posts=>{
     console.log(posts);
-    this.router.navigate(['/cart']);
+    // this.router.navigate(['/cart']);
   },
   err=>{
-    // console.clear();
+    console.clear();
     this.router.navigate(['/login']);
 
   }

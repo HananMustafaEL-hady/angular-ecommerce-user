@@ -26,6 +26,7 @@
     "angular2-carousel": "^1.0.17",
     "angular2-in-memory-web-api": "0.0.21",
     "angular2-jwt": "^0.2.3",
+    "aos": "^2.3.4",
     "bootstrap": "^5.0.0-beta2",
     "cors": "^2.8.5",
     "jsin": "^0.1.12",

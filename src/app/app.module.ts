@@ -8,6 +8,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { UsersComponent } from './components/users/users.component';
 import { RegisterComponent } from './components/register/register.component'
 import { ReactiveFormsModule } from '@angular/forms';
+
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { TableComponent } from './components/table/table.component';
 import { ErrorComponent } from './components/error/error.component';
@@ -26,7 +27,11 @@ import { from } from 'rxjs';
 import { AuthService } from './components/auth/auth.service';
 import { AuthGuard  } from './components/auth/auth.guard';
 import {TokenService} from './components/token.service';
-import { LogoutComponent } from './components/logout/logout.component'
+import { LogoutComponent } from './components/logout/logout.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { CommonModule } from "@angular/common";
+
+
 const appRoutes:Routes=[
   {path:'',component:HomeComponent},
   {path:'about',component:AboutComponent},
@@ -37,9 +42,9 @@ const appRoutes:Routes=[
 canActivate:[AuthGuard]
 },
   {path:'login',component:LoginComponent},
-  {path:'menuA',component:MenuadminComponent},
-  {path:'orderA',component:OrderadminComponent},
-  {path:'order',component:OrderComponent},
+  // {path:'menuA',component:MenuadminComponent},
+  // {path:'orderA',component:OrderadminComponent},
+  // {path:'order',component:OrderComponent},
   {path:'register',component:RegisterComponent},
   {path:'logout',component:LogoutComponent},
   {path:'**',component:ErrorComponent},
@@ -61,11 +66,15 @@ canActivate:[AuthGuard]
     MenuadminComponent,
     OrderadminComponent,
     LogoutComponent,
+    FooterComponent,
 
   ],
   imports: [
+    CommonModule,
+
     BrowserModule,
     FormsModule,
+
     ReactiveFormsModule,
     NgbModule,
     HttpClientModule,
@@ -76,11 +85,11 @@ canActivate:[AuthGuard]
 
   ],
   providers: [Storage,AuthService,AuthGuard,
-  // {
-  //   provide:HTTP_INTERCEPTORS,
-  //   useClass:TokenService,
-  //   multi:true
-  // }
+  {
+    provide:HTTP_INTERCEPTORS,
+    useClass:TokenService,
+    multi:true
+  }
 
 
 ],

@@ -1,4 +1,3 @@
-
 <div class="container-fluid mt-4 section-two">
   <div class="row">
       <!-- <img [src]=leaf2 class="img-leaf2  col-2"> -->
@@ -7,17 +6,22 @@
           <div class="row ">
             <!-- <div class="card col-4" style="margin-bottom: 10px;" *ngFor="let item of carts"> -->
               <div class="col-3 offset-1" *ngFor="let item of carts" >
-                 <div class="card">
+                 <div class="card" data-aos="fade-down-right" data-aos-easing="ease-in-out" data-aos-duration="1800">
                      <div class="in-card ">
                          <!-- <img [src] = foodone class="pic-food"> -->
                      </div>
                      <div class="details">
+                      <!-- <input type="checkbox" [value]="item.menuName" #myCheckbox> -->
+
                               <p class="orange">Meal:{{item.menuName}}</p>
                               <p class="price"> count: {{item.count}} </p>
-                              <button class="btn-cart col-10 offset-1" type="submit" (click)="deleteCart(item._id)">Delete</button>
-                              <input type="number" value=1 #c required>
-
+                              <p class="price"> price: {{item.price}} </p>
+                              <input type="number" value=1 #c required class="col-10 offset-1">
                               <button class="btn-cart col-10 offset-1" type="submit" (click)="EditCount(item._id,c.value)">change the count</button>
+
+                              <button class="btn-cart col-10 offset-1" type="submit" (click)="deleteCart(item._id)">Delete</button>
+
+                              <button #btn (click)="addToOrder(item);btn.disabled = true; " class=" btn-primary col-10 offset-1" >add to Order List</button>
 
                      </div>
                  </div>
@@ -28,6 +32,8 @@
               </div>
           </div>
       </div>
+
+      <button (click)="makeOrder()" class="btn offset-4 col-4 mb-4"><span>make order</span></button>
 
   <!-- </div> -->
 

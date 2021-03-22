@@ -1,5 +1,5 @@
 import { Component, OnInit ,Input} from '@angular/core';
-import {HttpClient,HttpHeaders} from '@angular/common/http';
+import {HttpClient,HttpErrorResponse,HttpHeaders} from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map } from 'rxjs//operators';
 import {AuthService} from '../auth/auth.service'
@@ -36,8 +36,8 @@ export class MenuadminComponent implements OnInit {
       this.isCollapsed6= true
   }
   constructor(private http:HttpClient,private menu:AuthService ,  private router:Router) { }
-  urlMenu="http://localhost:3000/menu";
-  urlMenuOffers="http://localhost:3000/menuOffers";
+  urlMenu="https://restaurant98.herokuapp.com/menu";
+  urlMenuOffers="https://restaurant98.herokuapp.com/menuOffers";
    menueuser=[];
    datamenu
   token=localStorage.getItem("token");
@@ -80,7 +80,15 @@ GetMenu(){
   console.log(posts);
   this.menueuser=posts;
 
-  });
+  },err=>{
+    if(err instanceof HttpErrorResponse){
+      if(err.status===401){
+        this.router.navigate(['/login']);
+      }
+    }
+  }
+
+  );
 }
 
 

@@ -1,6 +1,8 @@
-import { Component, OnInit ,Input} from '@angular/core';
-import {HttpClient,HttpHeaders} from '@angular/common/http';
+import { Component, OnInit ,Input, ViewChild} from '@angular/core';
+import {HttpClient,HttpHeaders,HttpErrorResponse, HttpRequest} from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import {Router} from '@angular/router'
+import {AuthService} from '../auth/auth.service'
 import { map } from 'rxjs//operators';
 @Injectable({
   providedIn: 'root'
@@ -13,7 +15,7 @@ import { map } from 'rxjs//operators';
 })
 export class CartComponent implements OnInit {
 
-  constructor(private http:HttpClient ) { }
+  constructor(private http:HttpClient,private router:Router ,private menu:AuthService) { }
 
   ngOnInit(): void {
  this.Getcarts();
@@ -21,9 +23,11 @@ export class CartComponent implements OnInit {
   }
   carts;
 
-  urlbase="http://localhost:3000/cart"
+  urlbase="https://restaurant98.herokuapp.com/cart"
 
 token=localStorage.getItem("token");
+// @ViewChild('myCheckbox') myCheckbox;
+
 
 /****************************************************************************************************/
 
@@ -56,9 +60,23 @@ Getcarts(){
   console.log(posts);
   this.carts=posts;
 
-});
+},err=>{
+  if(err instanceof HttpErrorResponse){
+    if(err){
+      this.router.navigate(['/login']);
+    }
+  }
+}
+);
 
 }
+arrOfOrder=[]
+addToOrder(item){
+  this.arrOfOrder.push(item);
+   console.log(this.arrOfOrder);
+
+
+};
 /****************************************************************************************************/
   deleteCart(id){
     const httpOptions = {
@@ -100,16 +118,40 @@ EditCount(id,count){
 
 
 
+makeOrder(){
+let arrsend=[]
+  const httpOptions = {
+    headers: new HttpHeaders({
+      // 'Accept': 'text/html',
+      // 'Content-Type': 'application/json; charset=utf-8',
+      'Authorization':`${this.token}`
+    }),
+    // responseType: 'json' as 'json'
+  };
 
+// console.log(this.arrOfOrder);
+for(var i =0;i<this.arrOfOrder.length;i++){
+ var obj={count: this.arrOfOrder[i].count,
+      menuName: this.arrOfOrder[i].menuName,
+      price:this.arrOfOrder[i].price
 
+ }
+ arrsend.push(obj);
+//  console.log(arrsend);
+}
 
+// arrsend=this.arrOfOrder;
+console.log(arrsend);
 
+  // this.http.post("http://localhost:3000/order",{arrsend,httpOptions}).subscribe(posts=>{
+  //   console.log(posts);
+  // });
 
-
-
-
-
-
+  const headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8');
+ this.http.post<any>("https://restaurant98.herokuapp.com/order",arrsend, {headers: headers}).subscribe(posts=>{
+    console.log(posts);
+  });
+}
 
 
 

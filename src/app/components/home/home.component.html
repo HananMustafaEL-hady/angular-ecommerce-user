@@ -7,14 +7,22 @@
 
   <div class="container mt-4">
       <div class="row">
-          <div class="col-5 ">
+          <div class="col-12 col-lg-5 "
+          data-aos="zoom-in-up" data-aos-easing="ease-in-out" data-aos-duration="1600"
+          >
               <div class="left-div ">
                   <img [src]=leaf class="img-leaf">
                   <h1>Testy <span>Food</span> online</h1>
-                  <p>we are the best , able to make you happy with a delicious meal.</p>
+                  <p>we are the best , able to make you happy with a delicious meal,
+                    we are the best , able to make you happy ,
+                    we are the best , able to make you happy with a delicious meal,
+                    we are the best , able to make you happy  meal
+                  </p>
               </div>
           </div>
-          <div class="col-5 offset-2">
+          <div class="col-5 offset-2"
+          data-aos="zoom-in-down" data-aos-easing="ease-in-out" data-aos-duration="1800"
+          >
               <div>
                   <img [src] = man style="max-height:400px ;">
               </div>
@@ -27,16 +35,18 @@
 <!--second section-->
 <div class="container-fluid mt-4 section-two">
   <div class="row">
-      <h2 class="m-auto title">Every Day Offers</h2>
+      <h2 class=" title">Every Day Offers</h2>
 
   </div>
 
-  <div class="row">
+  <div class="row" data-aos="zoom-out-left" >
       <img [src]=leaf2 class="img-leaf2  col-2">
 
       <div class="col-10 mt-4">
           <div class="row ">
-              <div class="col-3 offset-1 "*ngFor="let item of menuOffers" >
+              <div class="col-3 offset-1 "*ngFor="let item of menuOffers"
+              data-aos="fade-up-right" data-aos-easing="ease-in-out" data-aos-duration="1300"
+              >
                  <div class="card">
                      <div class="in-card ">
                          <img [src] = foodone class="pic-food">
@@ -45,8 +55,8 @@
                               <p class="orange">{{item.name}}</p>
                               <p class="price">{{item.price}} $</p>
                               <!-- <p class="price">{{item.description}}</p> -->
-                              <input type="number"  #count  placeholder="count..." name="count" required minlength="3" value=1>
-                              <button class="btn-cart col-10 offset-1" type="submit" (click)="addcart(item._id,item.name,count.value)" >Add to CART</button>
+                              <input type="number" class="col-10 offset-1" #count  placeholder="count..." name="count" required minlength="3" value=1>
+                              <button class="btn-cart col-10 offset-1" type="submit" (click)="addcart(item._id,item.name,count.value,item.price)" >Add to CART</button>
                      </div>
                  </div>
               </div>
@@ -67,19 +77,19 @@
       </div>
   </div>
   <div class="row justify-content-center mt-4" >
-      <div class="col-3   div-client">
+      <div class="col-lg-3 col-12   div-client" data-aos="fade-right" data-aos-easing="ease-in-out" data-aos-duration="1200">
           <p>this is the best food i have ever eat, this is the best food </p>
           <img [src]=people class="pic-people">
           <div class="client-name">john cris</div>
 
       </div>
-      <div class="col-3 offset-1 div-client">
+      <div class="col-lg-3 col-12 offset-1 div-client" data-aos="fade-left" data-aos-easing="ease-in-out" data-aos-duration="1100">
           <p>this is the best food i have ever eat, this is the best food </p>
           <img [src]=people class="pic-people">
           <div class="client-name">john cris</div>
 
       </div>
-      <div class="col-3 offset-1 div-client">
+      <div class="col-lg-3 col-12 offset-1 div-client" data-aos="fade-right" data-aos-easing="ease-in-out" data-aos-duration="1000">
           <p>this is the best food i have ever eat, this is the best food </p>
           <img [src]=people class="pic-people">
           <div class="client-name">john cris</div>

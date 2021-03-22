@@ -15,14 +15,26 @@ body{
   position: relative;
   display: flex;
   flex-direction: column;
-  min-width: 0;
+  
   word-wrap: break-word;
   background-color: #fff;
   background-clip: border-box;
   border: 0 solid rgba(0,0,0,.125);
-  border-radius: .25rem;
+ 
+  
 }
-
+.user-name{
+  color: #04a359;
+}
+.order{
+  color: #04a359;
+  
+}
+.pic-user{
+  width: 100%;
+  border-radius:100%;
+  border: 1px solid #04a359;
+}
 .card-body {
   flex: 1 1 auto;
   min-height: 1px;

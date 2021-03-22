@@ -1,10 +1,12 @@
 import { Component, OnInit ,Input} from '@angular/core';
 import {ActivatedRoute}from '@angular/router';
-import {HttpClient,HttpHeaders} from '@angular/common/http';
+import {HttpClient,HttpHeaders,HttpErrorResponse} from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { CommonModule } from "@angular/common";
-
+import {Router} from '@angular/router'
+import {AuthService} from '../auth/auth.service'
 import { map } from 'rxjs//operators';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -18,39 +20,49 @@ import { map } from 'rxjs//operators';
 export class ProfileComponent implements OnInit {
 
 
-  constructor(private Activated_Route :ActivatedRoute,private http:HttpClient  ) {
+  constructor(private Activated_Route :ActivatedRoute ,private router:Router,private http:HttpClient ,private order:AuthService) {
 
 
    }
 
   ngOnInit(): void {
     this.Getuser();
+    this.getorder();
   }
+
+  userorder=[{"Order_Placed_date": "",
+  "Order_delivered_date": "",
+  "items": [],
+  "order_status": "",
+  "userid": ""}];
+
   user=[{
 
 "address": "",
 "email": "",
 "firstName": "",
 "gender": "",
-"lastName": ""
+"lastName": "",
+"phone":""
   }]
-  urlbase="http://localhost:3000/users"
+  urlbase="https://restaurant98.herokuapp.com/users"
+
 
   token=localStorage.getItem("token");
+   httpOptions = {
+    headers: new HttpHeaders({
+      'Accept': 'json/html',
+      'Content-Type': 'application/json; charset=utf-8',
+      'Authorization':`${this.token}`
+    }),
+    // responseType: 'json' as 'json'
+  };
 
   Getuser(){
 
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Accept': 'json/html',
-        'Content-Type': 'application/json; charset=utf-8',
-        'Authorization':`${this.token}`
-      }),
-      // responseType: 'json' as 'json'
-    };
 
 
-    this.http.get(this.urlbase,httpOptions).pipe(
+    this.http.get(this.urlbase,this.httpOptions).pipe(
       map(resDB=>{
         console.log(resDB)
       const arrposts=[];
@@ -68,9 +80,39 @@ export class ProfileComponent implements OnInit {
     this.user= posts;
     console.log(this.user)
 
-  });
+  },err=>{
+    if(err instanceof HttpErrorResponse){
+      if(err.status===401){
+        this.router.navigate(['/login']);
+      }
+    }
+  }
+
+
+  );
+
+  }
+getorder(){
+
+  this.order.GetMethodauth("https://restaurant98.herokuapp.com/order/user").pipe(
+    map(resDB=>{
+     console.log(resDB)
+    const arrposts=[];
+     arrposts.push(...resDB);
+    return  arrposts;
 
   }
 
+  ))
+  .subscribe(posts=>{
+  console.log(posts);
+  this.userorder= posts;
+  console.log(this.userorder);
+
+
+}
+);
+
+}
 
 }

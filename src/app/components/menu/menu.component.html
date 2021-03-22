@@ -5,33 +5,40 @@
 
 
 
-            <div class="col-3 offset-1"  >
+            <!-- <div class="col-3 offset-1"  >
               <div class="card">
                   <div class="in-card ">
-                      <!-- <img [src] = foodone class="pic-food"> -->
+
                   </div>
                   <div class="details">
                            <p class="price">Name:</p>
                            <p class="price"> <span>price:</span></p>
                            <p class="price"><span>Description:</span> </p>
                            <input type="number"  #count  placeholder="count..." name="count" required minlength="3" value=1>
-                           <button class="btn-cart col-10 offset-1" type="submit" >Add to CART</button>
+                           <i *ngIf="addedToWishlist" class="fas fa-heart float-right" (click)="handleRemoveFromWishlist()"></i>
+                           <i *ngIf="!addedToWishlist" class="far fa-heart float-right" (click)="handleAddToWishlist()"></i>
+                           <button class="btn col-10 offset-1" type="submit" ><span>Add to CART</span></button>
 
                   </div>
               </div>
-           </div>
+           </div> -->
+           <!-- <input  type="text" placeholder="Search" #e (keyup)="searchFilter('b')">
+           <button ></button> -->
+
 
               <div class="col-3 offset-1" *ngFor="let item of arr" >
-                 <div class="card">
+                 <div class="card" data-aos="fade-up-left" data-aos-easing="ease-in-out" data-aos-duration="1800" >
                      <div class="in-card ">
                          <!-- <img [src] = foodone class="pic-food"> -->
                      </div>
                      <div class="details">
                               <p class="price">Name:<span>{{item.name}}</span></p>
+                              <i *ngIf="addedToWishlist" class="fas fa-heart float-right" (click)="handleRemoveFromWishlist(item._id)"></i>
+                             <i *ngIf="!addedToWishlist" class="far fa-heart float-right" (click)="handleAddToWishlist(item._id)"></i>
                               <p class="price"> <span>price:{{item.price}}</span></p>
                               <p class="price"><span>Description:{{item.description}}</span> </p>
                               <input type="number"  #count  placeholder="count..." name="count" required minlength="3" value=1>
-                              <button class="btn-cart col-10 offset-1" type="submit" (click)="addcart(item._id,item.name,count.value)" >Add to CART</button>
+                              <button class="btn col-10 offset-1" type="submit" (click)="addcart(item._id,item.name,count.value,item.price)" ><span>Add to CART</span></button>
 
                      </div>
                  </div>

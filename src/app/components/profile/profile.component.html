@@ -5,14 +5,14 @@
       </div>
 
       <div class="row gutters-sm">
-          <div class="col-md-4 mb-3">
+          <div class="col-md-4 mb-3" >
               <div class="card">
                   <div class="card-body">
                       <div class="d-flex flex-column align-items-center text-center">
                           <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin"
                               class="rounded-circle" width="150">
                           <div class="mt-3">
-                              <h4>
+                              <h4 class="user-name">
                                 <span> {{user[0].firstName}} </span>   {{user[0].lastName}}
 
                               </h4>
@@ -59,10 +59,10 @@
           </div>
           <div class="col-md-8">
               <div class="card mb-3">
-                  <div class="card-body">
+                  <div class="card-body user-name">
                       <div class="row" >
                           <div class="col-sm-3">
-                              <h6 class="mb-0">Full Name</h6>
+                              <h6 class="mb-0 ">Full Name</h6>
 
                           </div>
                           <div class="col-sm-9 text-secondary">
@@ -89,6 +89,7 @@
                       </div>
                       <hr>
 
+
                       <div class="row">
                           <div class="col-sm-3">
                               <h6 class="mb-0">Address</h6>
@@ -98,19 +99,53 @@
 
                           </div>
                       </div>
+
+                      <!-- <div class="row">
+                        <div class="col-sm-3">
+                            <h6 class="mb-0">Phone</h6>
+                        </div>
+                        <div class="col-sm-9 text-secondary">
+                          {{user[0].phone}}
+
+                        </div>
+                    </div> -->
+
                   </div>
               </div>
               <div class="row gutters-sm">
                   <div class="col-sm-6 mb-3">
                       <div class="card h-100">
-                          <div class="card-body">
+                          <div class="card-body order">
                               <h6 class="d-flex align-items-center mb-3">Orders</h6>
                           </div>
                       </div>
                   </div>
-
-              </div>
           </div>
       </div>
   </div>
 </div>
+
+</div>
+
+
+
+
+
+<div class="container " >
+  <div class="row ">
+    <div class="  col-lg-4  card justify-content-between " *ngFor="let property of userorder" >
+      <p class="price">order status:<span>{{property.value.order_status}}</span> </p>
+      <p class="price">Order Placed date:<span>{{property.value.Order_Placed_date}}</span> </p>
+      <p class="price">order status:<span>{{property.value.Order_delivered_date}}</span> </p>
+       <div class="col-sm"  *ngFor="let property2 of property.value.items" >
+        <p class="price"> menu Name:<span>{{property2.value.menuName}}</span></p>
+      <p class="price"> count:<span>{{property2.value.count}}</span></p>
+      <p class="price"> price:<span>{{property2.value.price}}</span></p>
+</div>
+</div>
+</div>
+</div>
+
+
+
+

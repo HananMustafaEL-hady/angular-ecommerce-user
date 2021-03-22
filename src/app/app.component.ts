@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import * as AOS from 'aos';
 
 @Component({
   selector: 'app-root',
@@ -18,30 +19,8 @@ export class AppComponent {
    console.log(this.userslogin)
 
   }
-//   tablist=[
-//     {title:"malak",feed:"feed1",Telephone:1021002},
-//   {title:"Ahmed",feed:"feed2",Telephone:1021002},
-//   {title:"mustafa",feed:"feed3",Telephone:1021002},
-//   {title:"mohamed ",feed:"feed4",Telephone:1021002},
-//   {title:"Ali",feed:"feed5",Telephone:1021002},
-//   ]
-//   flist=this.tablist;
-//   filtersearch(tabs){
-//    console.log(tabs);
-//    if(tabs===""){
-//      this.flist=this.tablist;
-//    }
-//    else{
-//     this.flist=  this.tablist.filter(function(list) {
-//       return list.title.toLowerCase().startsWith(tabs.toLowerCase())
-//     });
-//     console.log(this.flist);
-//    }
 
-
-// }
 students;
-// students:Array<{name ,city,email,age}>=[]
 
 studentfun(student){
 console.log(student);
@@ -50,6 +29,9 @@ this.students=student;
  //console.log(this.students)
 
 }
+ngOnInit(){
+  AOS.init();
+  }
 
 
 }

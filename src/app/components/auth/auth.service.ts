@@ -8,8 +8,8 @@ import { map } from 'rxjs//operators';
 @Injectable()
 export class AuthService {
 
-  private URL_login="http://localhost:3000/users/login";
-  private URL_register="http://localhost:3000/users/";
+  private URL_login="https://restaurant98.herokuapp.com/users/login";
+  private URL_register="https://restaurant98.herokuapp.com/users/";
    httpOptions = {
     headers: new HttpHeaders({
       'Accept': 'text/html',
@@ -25,6 +25,17 @@ export class AuthService {
     responseType: 'text' as 'json'
   };
 
+  token=localStorage.getItem("token");
+
+
+  httpOptions4 = {
+    headers: new HttpHeaders({
+      'Accept': 'text/html',
+      'Content-Type': 'application/json; charset=utf-8',
+      'Authorization':`${this.token}`
+    }),
+    responseType: 'json' as 'json'
+   };
 
 register(user){
 
@@ -41,6 +52,9 @@ register(user){
   loggedin(){
     return !!localStorage.getItem('token');
   }
+  GetMethodauth(url){
+    return this.http.get<any>(url,this.httpOptions4);
+    }
 
 
   constructor( private router: Router,private http:HttpClient) {}
@@ -78,7 +92,6 @@ PostMethod(url,data){
     this.router.navigate(['/login']);
   }
 
-  token=localStorage.getItem("token");
   user=[{
 
     "address": "",
@@ -115,8 +128,41 @@ PostMethod(url,data){
     ))
     .subscribe(posts=>{
     console.log(posts);
-    this.user= posts;
-    return this.user[0].role
+
+    return    posts;
+
+  });
+
+  }
+
+  postauth(url,data){
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Accept': 'json/html',
+        'Content-Type': 'application/json; charset=utf-8',
+        'Authorization':`${this.token}`
+      }),
+      // responseType: 'json' as 'json'
+    };
+
+
+    this.http.post(url,httpOptions,data).pipe(
+      map(resDB=>{
+        console.log(resDB)
+      const arrposts=[];
+
+
+
+        arrposts.push({...resDB});
+
+      return arrposts;
+    }
+
+    ))
+    .subscribe(posts=>{
+    console.log(posts);
+
+    return    posts;
 
   });
 
