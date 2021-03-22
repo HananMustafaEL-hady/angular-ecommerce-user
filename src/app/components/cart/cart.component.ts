@@ -26,6 +26,8 @@ export class CartComponent implements OnInit {
   urlbase="https://restaurant98.herokuapp.com/cart"
 
 token=localStorage.getItem("token");
+total_price=0;
+
 // @ViewChild('myCheckbox') myCheckbox;
 
 
@@ -59,8 +61,12 @@ Getcarts(){
   .subscribe(posts=>{
   console.log(posts);
   this.carts=posts;
+  for(var i =0;i<this.carts.length;i++){
 
-},err=>{
+    this.total_price+=this.carts[i].price*this.carts[i].count;
+    console.log(this.total_price)
+
+}},err=>{
   if(err instanceof HttpErrorResponse){
     if(err){
       this.router.navigate(['/login']);
@@ -113,8 +119,9 @@ EditCount(id,count){
   this.http.patch(`${this.urlbase}/${id}`, {count:count},httpOptions).subscribe(posts=>{
     console.log(posts);
   });
-  }
 
+
+  }
 
 
 
@@ -128,11 +135,13 @@ for(var i =0;i<this.carts.length;i++){
  var obj={
       menuid: this.carts[i].menuid,
       count: this.carts[i].count,
+
  }
+//  this.total_price+=this.carts[i].price
  arrsend.push(obj);
 //  console.log(arrsend);
 }
-
+// arrsend.push({total_price:this.total_price});
 // arrsend=this.arrOfOrder;
 console.log(arrsend);
 
@@ -144,8 +153,8 @@ console.log(arrsend);
  this.http.post<any>("https://restaurant98.herokuapp.com/order",arrsend, {headers: headers}).subscribe(posts=>{
     console.log(posts);
     this.router.navigate(['/profile/1']);
-    // this.cartdelete();
   });
+     this.cartdelete();
 
 
 

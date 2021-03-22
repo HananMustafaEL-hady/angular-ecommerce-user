@@ -203,16 +203,24 @@
         <p class="price">order status:<span>{{property.value.Order_delivered_date}}</span> </p>
 
         <div class="col-sm"  *ngFor="let property2 of property.value.items| keyvalue" >
-          <p class="price"> count:<span>{{property2.value.count}}</span></p>
           <p class="price"> name:<span>{{property2.value.menuid.name}}</span></p>
           <p class="price"> description:<span>{{property2.value.menuid.description}}</span></p>
           <p class="price"> price:<span>{{property2.value.menuid.price}}</span></p>
+          <p class="price"> count:<span>{{property2.value.count}}</span></p>
+          <p class="price"> total price:<span>{{property2.value.total_price}}</span></p>
+
 
 
 
 
 </div>
-</div></div>
+
+<button (click)="deleteorder(property.value._id)">Delete</button>
+
+</div>
+
+
+</div>
 
         <!-- {{property.value.userid}} -->
 

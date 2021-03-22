@@ -188,38 +188,68 @@ editMenudescription(description,id){
 }
 
 
-addcart(menuid,count){
+// addcart(menuid,count){
 
 
-console.log(menuid);
-  const httpOptions = {
-    headers: new HttpHeaders({
-      'Accept': 'text/html',
-      'Content-Type': 'application/json; charset=utf-8',
-      'Authorization':`${this.token}`
-    }),
-    responseType: 'text' as 'json'
-  };
+// console.log(menuid);
+//   const httpOptions = {
+//     headers: new HttpHeaders({
+//       'Accept': 'text/html',
+//       'Content-Type': 'application/json; charset=utf-8',
+//       'Authorization':`${this.token}`
+//     }),
+//     responseType: 'text' as 'json'
+//   };
+//   console.log(menuid);
+// this.datamenu={ menuid:menuid,count:count}
+// console.log(this.datamenu);
+// this.http.post("https://restaurant98.herokuapp.com/cart",this.datamenu,httpOptions).subscribe(
+
+// posts=>{
+//   console.log(posts);
+//   this.router.navigate(['/cart']);
+// },
+// err=>{
+//   // console.clear();
+//   this.router.navigate(['/login']);
+
+// }
+// );
+
+
+// }
+
+addcart(menuid,count,price,menuname){
+
+
   console.log(menuid);
-this.datamenu={ menuid:menuid,count:count}
-console.log(this.datamenu);
-this.http.post("https://restaurant98.herokuapp.com/cart",this.datamenu,httpOptions).subscribe(
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Accept': 'text/html',
+        'Content-Type': 'application/json; charset=utf-8',
+        'Authorization':`${this.token}`
+      }),
+      responseType: 'text' as 'json'
+    };
+    console.log(menuid);
+  this.datamenu={ menuid:menuid,count:count,price:price,menuname:menuname}
+  console.log(this.datamenu);
+  this.http.post("https://restaurant98.herokuapp.com/cart",this.datamenu,httpOptions).subscribe(
 
-posts=>{
-  console.log(posts);
-  this.router.navigate(['/cart']);
-},
-err=>{
-  // console.clear();
-  this.router.navigate(['/login']);
+  posts=>{
+    console.log(posts);
+    this.router.navigate(['/cart']);
+  },
+  err=>{
+    // console.clear();
+    this.router.navigate(['/login']);
 
-}
-);
-
-
-}
+  }
+  );
 
 
+  }
+////////////////////////////////////////////////////////////////
 templist
 searchFilter(e){
   console.log(e)

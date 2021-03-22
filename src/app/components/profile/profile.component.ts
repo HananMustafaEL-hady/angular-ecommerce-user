@@ -183,7 +183,46 @@ editaddress(address){
 
 }
 
+deleteorder(id){
+  console.log(id);
+  this.http.delete(`https://restaurant98.herokuapp.com/order/user/${id}`,this.httpOptionsEdit).subscribe(posts=>{
+    console.log(posts);
+  });
+
+}
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+images;
+multipleImages = [];
+selectImage(event) {
+  debugger;
+  if (event.target.files.length > 0) {
+    const file = event.target.files[0];
+  }
+}
+
+selectMultipleImage(event){
+  if (event.target.files.length > 0) {
+    this.multipleImages = event.target.files;
+  }
+}
 
 
+
+onSubmit(){
+  debugger;
+  console.log(this.token);
+  const formData = new FormData();
+  formData.append('file', this.images);
+
+  this.http.post<any>('https://restaurant98.herokuapp.com/upload', formData,this.httpOptionsEdit).subscribe(
+    res => {
+      debugger;
+      console.log(res)
+    }
+
+
+  );
+}
 
 }

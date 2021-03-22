@@ -8,7 +8,9 @@ import { HeaderComponent } from './components/header/header.component';
 import { UsersComponent } from './components/users/users.component';
 import { RegisterComponent } from './components/register/register.component'
 import { ReactiveFormsModule } from '@angular/forms';
-
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { HttpClient} from '@angular/common/http';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { TableComponent } from './components/table/table.component';
 import { ErrorComponent } from './components/error/error.component';
@@ -81,9 +83,16 @@ canActivate:[AuthGuard]
     ReactiveFormsModule,
     NgbModule,
     HttpClientModule,
+    HttpClientModule,
 
     RouterModule.forRoot(appRoutes),
-
+    // TranslateModule.forRoot({
+    //   loader: {
+    //     provide: TranslateLoader,
+    //     useFactory: httpTranslateLoader,
+    //     deps: [HttpClient]
+    //   }
+    // })
 
 
   ],
@@ -99,3 +108,6 @@ canActivate:[AuthGuard]
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+// export function httpTranslateLoader(http: HttpClient) {
+//   return new TranslateHttpLoader(http);
+// }
