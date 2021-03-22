@@ -43,6 +43,7 @@ export class ProfileComponent implements OnInit {
   registerForm!: FormGroup;
 
   userorder=[]
+
   // userorder=[{"Order_Placed_date": "",
   // "Order_delivered_date": "",
   // "items": [],
@@ -126,7 +127,6 @@ getorder(){
   this.userorder= posts;
   console.log(this.userorder);
 
-
 }
 );
 
@@ -158,7 +158,7 @@ editname(fname,lname){
 }
 
 editemail(email){
-
+console.log(email);
   this.http.patch(`${this.urlbase}/email/`,{email},this.httpOptionsEdit).subscribe(posts=>{
     console.log(posts);
   });

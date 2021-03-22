@@ -104,7 +104,7 @@
 
                       </div>
 
-                      <button  class="btn btn-primary" (click)="editemail(email)">Submit</button>
+                      <button  class="btn btn-primary" (click)="editemail(email.value)">Submit</button>
                       <hr>
 
                       <form>
@@ -191,16 +191,34 @@
 
 
 <div>
-<!--
-  <div *ngFor="let item of userorder">
-    <p>
-      {{item}}
-      </p>
 
 
 
-  </div> -->
-  <!-- {{userorder}} -->
+
+  <div class="container " >
+    <div class="row ">
+      <div class="  col-lg-4  card justify-content-between " *ngFor="let property of userorder | keyvalue" >
+        <p class="price">order status:<span>{{property.value.order_status}}</span> </p>
+        <p class="price">Order Placed date:<span>{{property.value.Order_Placed_date}}</span> </p>
+        <p class="price">order status:<span>{{property.value.Order_delivered_date}}</span> </p>
+
+        <div class="col-sm"  *ngFor="let property2 of property.value.items| keyvalue" >
+          <p class="price"> count:<span>{{property2.value.count}}</span></p>
+          <p class="price"> name:<span>{{property2.value.menuid.name}}</span></p>
+          <p class="price"> description:<span>{{property2.value.menuid.description}}</span></p>
+          <p class="price"> price:<span>{{property2.value.menuid.price}}</span></p>
+
+
+
+
+</div>
+</div></div>
+
+        <!-- {{property.value.userid}} -->
+
+  </div>
+
+  <!-- {{userorder[0]}} -->
 
 
 

@@ -51,6 +51,7 @@ canActivate:[AuthGuard]
 ];
 @NgModule({
   declarations: [
+
     AppComponent,
     FirstComponent,
     SecondComponent,
@@ -64,9 +65,11 @@ canActivate:[AuthGuard]
     LoginComponent,
     CartComponent,
     MenuadminComponent,
+    ProfileComponent,
     OrderadminComponent,
     LogoutComponent,
     FooterComponent,
+
 
   ],
   imports: [
