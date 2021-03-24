@@ -245,6 +245,8 @@ addcart(menuid,count,price,menuname){
     this.router.navigate(['/login']);
 
   }
+
+
   );
 
 
@@ -263,7 +265,11 @@ searchFilter(e){
    console.log(this.templist);
   }
 }
+click : boolean = false;
 
+onButtonClick(){
+  this.click = !this.click;
+}
 
 }
 
