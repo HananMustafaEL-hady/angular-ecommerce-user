@@ -238,7 +238,7 @@ addcart(menuid,count,price,menuname){
 
   posts=>{
     console.log(posts);
-    this.router.navigate(['/cart']);
+    // this.router.navigate(['/cart']);
   },
   err=>{
     // console.clear();

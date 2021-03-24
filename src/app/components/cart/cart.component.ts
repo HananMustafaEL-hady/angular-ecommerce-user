@@ -154,6 +154,10 @@ console.log(arrsend);
     console.log(posts);
     this.router.navigate(['/profile/1']);
   });
+//   this.http.patch("https://restaurant98.herokuapp.com/order/price",this.total_price).subscribe(posts=>{
+//     console.log(posts);
+// })
+
      this.cartdelete();
 
 

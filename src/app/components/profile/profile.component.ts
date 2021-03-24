@@ -8,6 +8,7 @@ import {AuthService} from '../auth/auth.service'
 import { map } from 'rxjs//operators';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { FormControl } from '@angular/forms';
+// import { MatDialogRef } from '@angular/material/dialog';
 
 
 @Injectable({
@@ -55,12 +56,14 @@ export class ProfileComponent implements OnInit {
 
   user=[{
 
+"_id":"",
 "address": "",
 "email": "",
 "firstName": "",
 "gender": "",
 "lastName": "",
-"phone":""
+"phone":"",
+"image":"",
   }]
   urlbase="https://restaurant98.herokuapp.com/users"
 
@@ -192,37 +195,65 @@ deleteorder(id){
 }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-images;
+img_upload;
 multipleImages = [];
 selectImage(event) {
-  debugger;
+  // debugger;
   if (event.target.files.length > 0) {
-    const file = event.target.files[0];
-  }
-}
+     this.img_upload = event.target.files[0];
+   // console.log(file);
 
-selectMultipleImage(event){
-  if (event.target.files.length > 0) {
-    this.multipleImages = event.target.files;
   }
 }
 
 
-
-onSubmit(){
-  debugger;
-  console.log(this.token);
+onSubmit(productId){
+  // debugger;
   const formData = new FormData();
-  formData.append('file', this.images);
+  formData.append('image', this.img_upload);
 
-  this.http.post<any>('https://restaurant98.herokuapp.com/upload', formData,this.httpOptionsEdit).subscribe(
+  this.http.post<any>(`https://restaurant98.herokuapp.com/upload/user/${productId}`, formData).subscribe(
     res => {
-      debugger;
+      // debugger;
       console.log(res)
     }
 
 
   );
 }
+
+
+getlogout(){
+  this.order.logout();
+}
+// actionFunction() {
+//   alert("You have logged out.");
+//   this.closeModal();
+// }
+
+
+// closeModal() {
+//   this.dialogRef.close();
+// }
+///////////////////////////////
+name = "user";
+  url: any;
+onSelectFile(event) {
+  if (event.target.files && event.target.files[0]) {
+    var reader = new FileReader();
+
+    reader.readAsDataURL(event.target.files[0]); // read file as data url
+
+    reader.onload = event => {
+      // called once readAsDataURL is completed
+      this.url = event.target.result;
+    };
+  }
+}
+///////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
 
 }

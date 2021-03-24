@@ -32,6 +32,7 @@ import {TokenService} from './components/token.service';
 import { LogoutComponent } from './components/logout/logout.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { CommonModule } from "@angular/common";
+import { ModalComponent } from './components/modal/modal.component';
 
 
 const appRoutes:Routes=[
@@ -71,6 +72,7 @@ canActivate:[AuthGuard]
     OrderadminComponent,
     LogoutComponent,
     FooterComponent,
+    ModalComponent,
 
 
   ],

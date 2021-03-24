@@ -9,18 +9,34 @@
               <div class="card">
                   <div class="card-body">
                       <div class="d-flex flex-column align-items-center text-center">
-                          <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin"
-                              class="rounded-circle" width="150">
+                        <!-- <img [src]="url ? url : 'https://www.w3schools.com/howto/img_avatar.png'"> <br/>
+                        <input type='file' (change)="onSelectFile($event)"> -->
+
+                        <img src="https://restaurant98.herokuapp.com/upload/show/{{user[0].image}}">
+
                           <div class="mt-3">
                               <h4 class="user-name">
                                 <span> {{user[0].firstName}} </span>   {{user[0].lastName}}
 
                               </h4>
                           </div>
+
+                          <div>
+                            <input class="choose-file" type="file" name="image" (change)="selectImage($event)" />
+                          </div>
+                          <br>
+                          <div>
+                            <button   class="upload" type="submit" (click)="onSubmit(user[0]._id)">Upload</button>
+                          </div>
+                           <div class="col-4 offset-4 mb-5">
+<button (click)="getlogout()" class="edit-btn upload"><span>logout</span></button>
+  </div>
                       </div>
                   </div>
               </div>
+
               <div class="card mt-3">
+
                   <!-- <ul class="list-group list-group-flush">
 
                       <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
@@ -69,42 +85,35 @@
                           <span> {{user[0].firstName}} </span>   {{user[0].lastName}}
 
                           <div class="form-group">
-                            <input  class="form-control" #firstName >
-                            <input  class="form-control" #lastName >
+                            <input  class="form-control "  style="width: 200px;" #firstName >
+                            <input  class="form-control" style="width: 200px;" #lastName >
 
                           </div>
 
-                          <button  class="btn btn-primary" (click)="editname(firstName.value,lastName.value)">Submit</button>
+                          <button  class="edit-btn upload" (click)="editname(firstName.value,lastName.value)">Edit Name</button>
 
                           </div>
-
-
-
-
-
-
-
-
-
 
                       </div>
                       <hr>
                       <div class="row">
                           <div class="col-sm-3">
-                              <h6 class="mb-0">Email</h6>
+                              <h6 class="mb-0">Email </h6>
                           </div>
+
                           <div class="col-sm-9 text-secondary">
                             {{user[0].email}}
+                            <div class="form-group">
+                              <input type="text" class="form-control" pattern="[^@\s]+@[^@\s]+" title="Invalid email address" style="width: 200px;"  #email />
+
+                            </div>
+
+                            <button  class="btn btn-primary edit-btn upload"  (click)="editemail(email.value)">Edit Email</button>
 
                           </div>
                       </div>
 
-                      <div class="form-group">
-                        <input type="text" class="form-control" pattern="[^@\s]+@[^@\s]+" title="Invalid email address" #email />
 
-                      </div>
-
-                      <button  class="btn btn-primary" (click)="editemail(email.value)">Submit</button>
                       <hr>
 
                       <form>
@@ -139,15 +148,15 @@
                           <div class="col-sm-3">
                               <h6 class="mb-0">Address</h6>
                           </div>
-                          <div class="col-sm-9 text-secondary">
+                          <div class="col-sm-9 text-secondary ">
                             {{user[0].address}}
 
                             <!-- <form> -->
                               <div class="form-group">
-                                <input  class="form-control" #address >
+                                <input  class="form-control"style="width: 200px;"  #address >
                               </div>
 
-                              <button  class="btn btn-primary" (click)="editaddress(address.value)">Submit</button>
+                              <button  class="btn btn-primary edit-btn upload" (click)="editaddress(address.value)">Edit address</button>
                             <!-- </form> -->
                           </div>
 
@@ -174,7 +183,8 @@
                   <div class="col-sm-6 mb-3">
                       <div class="card h-100">
                           <div class="card-body order">
-                              <h6 class="d-flex align-items-center mb-3">Orders</h6>
+                              <h6 class="d-flex align-items-center mb-3"style = "
+                              font-family:georgia,garamond,serif;font-size:60px;font-style:italic;  text-align:center;  font-weight: bold;">Orders</h6>
                           </div>
                       </div>
                   </div>
@@ -195,19 +205,18 @@
 
 
 
-  <div class="container " >
+  <div class="container" >
     <div class="row ">
       <div class="  col-lg-4  card justify-content-between " *ngFor="let property of userorder | keyvalue" >
         <p class="price">order status:<span>{{property.value.order_status}}</span> </p>
         <p class="price">Order Placed date:<span>{{property.value.Order_Placed_date}}</span> </p>
         <p class="price">order status:<span>{{property.value.Order_delivered_date}}</span> </p>
-
         <div class="col-sm"  *ngFor="let property2 of property.value.items| keyvalue" >
           <p class="price"> name:<span>{{property2.value.menuid.name}}</span></p>
           <p class="price"> description:<span>{{property2.value.menuid.description}}</span></p>
           <p class="price"> price:<span>{{property2.value.menuid.price}}</span></p>
           <p class="price"> count:<span>{{property2.value.count}}</span></p>
-          <p class="price"> total price:<span>{{property2.value.total_price}}</span></p>
+          <!-- <p class="price"> total price:<span>{{property2.value.total_price}}</span></p> -->
 
 
 
@@ -215,7 +224,7 @@
 
 </div>
 
-<button (click)="deleteorder(property.value._id)">Delete</button>
+<button class="container-fluid" (click)="deleteorder(property.value._id)">Delete</button>
 
 </div>
 
@@ -233,4 +242,16 @@
 <!-- {{userorder[0].order_status}} -->
 
 
-
+<!--
+<div id="modal-content-wrapper">
+  <header id="modal-header">
+      <h1 id="modal-title">Are you sure you want to logout?</h1>
+  </header>
+  <section id="modal-body">
+      <p>If you logout bad things might happen, but don't mind me, I'm just the description in a modal...</p>
+  </section>
+  <footer id="modal-footer">
+      <button mat-raised-button id="modal-action-button" (click)="actionFunction()">Logout</button>
+      <button mat-raised-button id="modal-cancel-button" (click)="closeModal()">Go back</button>
+  </footer>
+</div> -->
